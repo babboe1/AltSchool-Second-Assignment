@@ -1,8 +1,5 @@
 import React from 'react';
-import { SearchOutlined } from '@mui/icons-material';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { FadeIn } from '../styles/animations';
 
 const Info = styled.div`
    opacity: 0;
@@ -36,52 +33,17 @@ const Container = styled.div`
    }
 `;
 
-const Circle = styled.div`
-   width: 200px;
-   height: 200px;
-   border-radius: 50%;
-   background-color: white;
-   position: absolute;
-`;
-
 const Image = styled.img`
    height: 75%;
    z-index: 2;
    border-radius: 8px;
 `;
 
-const Icon = styled.div`
-   width: 40px;
-   height: 40px;
-   border-radius: 50%;
-   background-color: ${({ theme }) => theme.modeReverse};
-   color: ${({ theme }) => theme.themeMode};
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   margin: 10px;
-   transition: all 0.5s ease;
-   &:hover {
-      background-color: ${({ theme }) => theme.themeMode};
-      color: ${({ theme }) => theme.modeReverse};
-      transform: scale(1.1);
-   }
-`;
 
 export const User = ({ user }) => {
    return (
-      <FadeIn key={`${user.id.value}`}>
          <Container key={`${user.id.value}`}>
-            <Circle />
             <Image src={user.picture.large} />
-            <Info>
-               <Icon>
-                  <Link to={`/users/${user.id.value}`}>
-                     <SearchOutlined />
-                  </Link>
-               </Icon>
-            </Info>
          </Container>
-      </FadeIn>
    );
 };
